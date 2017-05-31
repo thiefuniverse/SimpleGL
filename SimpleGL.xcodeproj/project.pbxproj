@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D4E8554D1EDEF55D00FBB2A8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4E8554C1EDEF55D00FBB2A8 /* main.cpp */; };
+		D4E855551EDEF56C00FBB2A8 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E855541EDEF56C00FBB2A8 /* OpenGL.framework */; };
+		D4E855571EDEF59700FBB2A8 /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E855561EDEF59700FBB2A8 /* libGLEW.2.0.0.dylib */; };
+		D4E855591EDEF5A900FBB2A8 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E855581EDEF5A900FBB2A8 /* libglfw.3.2.dylib */; };
+		D4E8555C1EDEF8CE00FBB2A8 /* SimpleGLPaint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4E8555A1EDEF8CE00FBB2A8 /* SimpleGLPaint.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,11 @@
 /* Begin PBXFileReference section */
 		D4E855491EDEF55D00FBB2A8 /* SimpleGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E8554C1EDEF55D00FBB2A8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D4E855541EDEF56C00FBB2A8 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D4E855561EDEF59700FBB2A8 /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
+		D4E855581EDEF5A900FBB2A8 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		D4E8555A1EDEF8CE00FBB2A8 /* SimpleGLPaint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleGLPaint.cpp; sourceTree = "<group>"; };
+		D4E8555B1EDEF8CE00FBB2A8 /* SimpleGLPaint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleGLPaint.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E855591EDEF5A900FBB2A8 /* libglfw.3.2.dylib in Frameworks */,
+				D4E855571EDEF59700FBB2A8 /* libGLEW.2.0.0.dylib in Frameworks */,
+				D4E855551EDEF56C00FBB2A8 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +55,7 @@
 			children = (
 				D4E8554B1EDEF55D00FBB2A8 /* SimpleGL */,
 				D4E8554A1EDEF55D00FBB2A8 /* Products */,
+				D4E855531EDEF56C00FBB2A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +71,20 @@
 			isa = PBXGroup;
 			children = (
 				D4E8554C1EDEF55D00FBB2A8 /* main.cpp */,
+				D4E8555A1EDEF8CE00FBB2A8 /* SimpleGLPaint.cpp */,
+				D4E8555B1EDEF8CE00FBB2A8 /* SimpleGLPaint.hpp */,
 			);
 			path = SimpleGL;
+			sourceTree = "<group>";
+		};
+		D4E855531EDEF56C00FBB2A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4E855581EDEF5A900FBB2A8 /* libglfw.3.2.dylib */,
+				D4E855561EDEF59700FBB2A8 /* libGLEW.2.0.0.dylib */,
+				D4E855541EDEF56C00FBB2A8 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E8554D1EDEF55D00FBB2A8 /* main.cpp in Sources */,
+				D4E8555C1EDEF8CE00FBB2A8 /* SimpleGLPaint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +244,15 @@
 		D4E855511EDEF55D00FBB2A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/2.0.0/include,
+					/usr/local/Cellar/glfw/3.2.1/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.0.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -225,6 +260,15 @@
 		D4E855521EDEF55D00FBB2A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/2.0.0/include,
+					/usr/local/Cellar/glfw/3.2.1/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.0.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
