@@ -47,15 +47,17 @@ namespace SimpleGLPaint {
 
     bool SimpleGLPainter::createWindow(unsigned int width, unsigned int height, std::string title){
         window=glfwCreateWindow(width,height,title.c_str(),nullptr,nullptr);
-        return window!=nullptr;
+        if (window!=nullptr){
+            int screenWidth,screenHeight;
+            glfwGetFramebufferSize(window,&screenWidth,&screenHeight);
+            glViewport(0, 0, screenWidth, screenHeight);
+            glewInit();
+            return true;
+        }
+        return false;
     }
     
     void SimpleGLPainter::drawLine( GLint x1, GLint y1, GLint x2,  GLint y2){
-        
-        int screenWidth,screenHeight;
-        glfwGetFramebufferSize(window,&screenWidth,&screenHeight);
-         glViewport(0, 0, screenWidth, screenHeight);
-        glewInit();
         
         glfwMakeContextCurrent(window);
         glewExperimental=GL_TRUE;
@@ -102,7 +104,8 @@ namespace SimpleGLPaint {
         {
             glfwPollEvents();
             // glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
+            // glClear(GL_COLOR_BUFFER_BIT);
+            drawLine(4, 4, 90, 90);
             glfwSwapBuffers(window);
         }
         byeSimpleGL();
